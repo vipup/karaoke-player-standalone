@@ -1,0 +1,199 @@
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --highlight-color: #0066cc;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+}
+
+.player-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.controls {
+    margin: 20px 0;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    background-color: var(--highlight-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+#lyrics-display {
+    font-size: 24px;
+    margin: 20px 0;
+    min-height: 100px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.themes {
+    margin: 20px 0;
+}
+
+select {
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Add these styles for the timeline */
+.timeline-container {
+    margin: 20px 0;
+    padding: 10px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    overflow-x: auto;
+    position: relative;
+    height: 60px;
+    cursor: pointer;
+}
+
+.timeline {
+    position: relative;
+    height: 40px;
+    background: #fff;
+    border-radius: 3px;
+}
+
+.timeline-events {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+}
+
+.timeline-event {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: rgba(0, 102, 204, 0.2);
+}
+
+.timeline-cursor {
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: #0066cc;
+    pointer-events: none;
+}
+
+.timeline-labels {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    font-size: 10px;
+    color: #666;
+}
+
+.timeline-label {
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+/* Make the timeline container responsive */
+@media (max-width: 600px) {
+    .timeline-container {
+        height: 50px;
+    }
+    
+    .timeline {
+        height: 30px;
+    }
+}
+
+/* Additional timeline styling */
+.timeline-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.timeline-container::-webkit-scrollbar-track {
+    background: #ddd;
+    border-radius: 4px;
+}
+
+.timeline-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.timeline-container::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+.timeline-event:hover {
+    background: rgba(0, 102, 204, 0.4);
+}
+
+.timeline-cursor::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -4px;
+    width: 10px;
+    height: 10px;
+    background: #0066cc;
+    border-radius: 50%;
+}
+
+/* Lyrics styling */
+.lyrics-container {
+    margin: 20px 0;
+    padding: 20px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.lyrics-line {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+}
+
+.lyrics-line.current {
+    font-size: 24px;
+    font-weight: bold;
+    opacity: 1;
+    color: #0066cc;
+}
+
+@keyframes highlight {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.lyrics-line.highlight {
+    animation: highlight 0.3s ease-out;
+}

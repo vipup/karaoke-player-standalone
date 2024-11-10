@@ -1,5 +1,52 @@
-<<<<<<< HEAD
-Hello eclipse!
-=======
-Hell0 w0rld!
->>>>>>> 00a73b4d1311be920d62db84667be04900160d4b
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Karaoke Player</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="player-container">
+        <h1>Karaoke Player</h1>
+        <div class="controls">
+            <input type="file" id="file-input" accept=".kar,.mid">
+            <button id="play">Play</button>
+            <button id="pause">Pause</button>
+            <button id="stop">Stop</button>
+            <span id="time">0:00</span>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div id="progress-current" class="progress-current"></div>
+            </div>
+            <div class="time-labels">
+                <span id="time-current">0:00</span>
+                <span id="time-total">0:00</span>
+            </div>
+        </div>
+        <div class="timeline-container">
+            <div class="timeline">
+                <div class="timeline-events"></div>
+                <div class="timeline-cursor"></div>
+            </div>
+        </div>
+        <div class="lyrics-container">
+            <div id="lyrics-previous" class="lyrics-line"></div>
+            <div id="lyrics-current" class="lyrics-line current"></div>
+            <div id="lyrics-next" class="lyrics-line"></div>
+        </div>
+    </div>
+
+    <!-- Load libraries first -->
+    <script src="lib/midi-parser.js"></script>
+    <script src="lib/jasmid/stream.js"></script>
+    <script src="lib/jasmid/midifile.js"></script>
+    <script src="lib/jasmid/replayer.js"></script>
+    <script src="lib/MIDI.js/Base64.js"></script>
+    <script src="lib/MIDI.js/base64binary.js"></script>
+    <script src="lib/MIDI.js/MIDI.js"></script>
+
+    <!-- Then load our player code -->
+    <script src="js/midi.js"></script>
+    <script src="js/player.js"></script>
+</body>
+</html> 
